@@ -28,6 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnitType.Companion.Sp
@@ -95,12 +96,12 @@ fun Profile (modifier: Modifier = Modifier){
                 Modifier.size(250.dp)
 //                    .background(color = Color(0xFF001532))
             ){
-                Image(painter = painter, contentDescription = "Image of the developer", contentScale = ContentScale.Fit, modifier = Modifier.fillMaxSize())
+                Image(painter = painter, contentDescription = stringResource(R.string.main_image), contentScale = ContentScale.Fit, modifier = Modifier.fillMaxSize())
             }
             Spacer(Modifier.height( 20.dp))
-            Text("Kwabena Yiadom", fontSize = 20.sp, )
+            Text(stringResource(R.string.name), fontSize = 20.sp)
             Spacer(Modifier.height(5.dp))
-            Text("Android Development God", fontSize = 10.sp, fontWeight = FontWeight.SemiBold, color = Color(0xFF00E313))
+            Text(stringResource(R.string.android_title), fontSize = 10.sp, fontWeight = FontWeight.SemiBold, color = Color(0xFF3DDC84))
         }
     }
 }
@@ -122,13 +123,17 @@ fun Contacts (){
         modifier = Modifier.fillMaxWidth()
     ){
 
-        LineItem(id = R.drawable.phone_icon, logoDesc = "Phone", text = "+233555588888")
-        LineItem(id = R.drawable.octicons_mark_github, logoDesc = "Git Hub OctoCat", text = "https://github.com/Glitch-bug")
-        LineItem(id = R.drawable.mail_icon, logoDesc="Email", text="Kwabenayiadom271@gmail.com")
+        LineItem(id = R.drawable.phone_icon, logoDesc = "Phone", text = stringResource(R.string.number))
+        LineItem(id = R.drawable.octicons_mark_github, logoDesc = "Git Hub OctoCat", text = stringResource(
+            R.string.github_link
+        ))
+        LineItem(id = R.drawable.mail_icon, logoDesc="Email", text= stringResource(R.string.email))
         LineItem(id = R.drawable.share_icon, logoDesc = "Share", text = "@AndroidDev")
-        LineItem(id = R.drawable.linkedin_icon, logoDesc = "LinkedIn", text = "https://www.linkedin.com/in/kwabena-yiadom-934004230/", )
-
-
+        LineItem(
+            id = R.drawable.linkedin_icon,
+            logoDesc = "LinkedIn",
+            text = stringResource(R.string.linkedIn_profile)
+        )
     }
 }
 
@@ -137,7 +142,6 @@ fun Contacts (){
 fun LineItem(id: Int, logoDesc: String, text: String) {
 
     Row(
-//        horizontalArrangement = Arrangement.spacedBy(space = 30.dp)
     ) {
         Spacer(Modifier.width(70.dp))
         Icon(painter = painterResource(id,), contentDescription=logoDesc,  modifier = Modifier.size(size = 16.dp), tint = Color.Unspecified)
@@ -151,20 +155,5 @@ fun LineItem(id: Int, logoDesc: String, text: String) {
 fun ContactsPreview(){
     BusinessCardTheme{
         Contacts()
-    }
-}
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    BusinessCardTheme {
-        Greeting("Android")
     }
 }

@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Business Card</string>
+    <string name="android_title">Android Development God</string>
+    <string name="name">Kwabena Yiadom</string>
+    <string name="main_image">Image of the developer</string>
+    <string name="number">+233555588888</string>
+    <string name="github_link">https://github.com/Glitch-bug</string>
+    <string name="email">Kwabenayiadom271@gmail.com</string>
+    <string name="linkedIn_profile">https://www.linkedin.com/in/kwabena-yiadom-934004230/</string>
 </resources>
